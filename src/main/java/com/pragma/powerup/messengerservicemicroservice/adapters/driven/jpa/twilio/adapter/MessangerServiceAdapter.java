@@ -4,19 +4,27 @@ import com.pragma.powerup.messengerservicemicroservice.domain.spi.IMessengerServ
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 
 
 @RequiredArgsConstructor
 public class MessangerServiceAdapter implements IMessengerServicePersistencePort {
 
-    public static final String ACCOUNT_SID = "ACef52a1c25e1e9649e68834138501d177";
-    public static final String AUTH_TOKEN = "30a4d7b7809518835b710403249198b2";
+    @Value("${my.variables.accountSid}")
+    String accountSid;
+    @Value("${my.variables.authToken}")
+    String authToken;
+    @Value("${my.variables.phoneNumberTo}")
+    String phoneNumberTo;
+    @Value("${my.variables.phoneNumberFrom}")
+    String phoneNumberFrom;
+
     @Override
     public void sendMessageOrderReady(String message) {
-        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+        Twilio.init(accountSid, authToken);
          Message.creator(
-                        new com.twilio.type.PhoneNumber("+573118688145"),
-                        new com.twilio.type.PhoneNumber("+14028242306"),
+                        new com.twilio.type.PhoneNumber(phoneNumberTo),
+                        new com.twilio.type.PhoneNumber(phoneNumberFrom),
                         message)
                 .create();
     }
