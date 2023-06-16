@@ -15,3 +15,7 @@ management:
 
 my:
   variables:
+    accountSid: "ACef52a1c25e1e9649e68834138501d177"
+    authToken: "30a4d7b7809518835b710403249198b2"
+    phoneNumberTo: "+573118688145"
+    phoneNumberFrom: "+14028242306"
