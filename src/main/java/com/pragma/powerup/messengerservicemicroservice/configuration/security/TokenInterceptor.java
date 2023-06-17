@@ -71,5 +71,7 @@ public class TokenInterceptor implements HandlerInterceptor {
         return requestURI.startsWith("/messengerservice/send/message");
 
     }
+
+
 }
 

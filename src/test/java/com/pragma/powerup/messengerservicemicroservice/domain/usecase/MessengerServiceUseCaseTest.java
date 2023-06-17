@@ -29,10 +29,10 @@ class MessengerServiceUseCaseTest {
 
 
         // Act
-        servicePort.sendMessageOrderReady(bodyMessage);
+        servicePort.sendMessageStateOrderUpdated(bodyMessage);
 
         // Assert
-        verify(messengerServicePersistencePort, times(1)).sendMessageOrderReady(bodyMessage);
+        verify(messengerServicePersistencePort, times(1)).sendMessageStateOrderUpdated(bodyMessage);
     }
 
 }

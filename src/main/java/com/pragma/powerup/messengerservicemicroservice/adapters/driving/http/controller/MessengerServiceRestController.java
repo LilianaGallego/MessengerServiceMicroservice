@@ -31,11 +31,10 @@ public class MessengerServiceRestController {
                     })
     @PostMapping("/send/message")
     public ResponseEntity<Map<String, String>> sendMessageOrderReady(@Valid @RequestBody String message) {
-        messangerServiceHandler.sendMessageOrderReady(message);
+        messangerServiceHandler.sendMessageStateOrderUpdated(message);
         return ResponseEntity.status(HttpStatus.OK)
-                .body(Collections.singletonMap(Constants.RESPONSE_MESSAGE_KEY, Constants.MESSAGE_ORDER_READY));
+                .body(Collections.singletonMap(Constants.RESPONSE_MESSAGE_KEY, Constants.MESSAGE_ORDER_UPDATED));
     }
-
 
 }
 

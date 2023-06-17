@@ -11,8 +11,7 @@ public class MessengerServiceUseCase implements IMessengerServicePort {
     }
 
     @Override
-    public void sendMessageOrderReady(String message) {
-        messangerServicePersistencePort.sendMessageOrderReady(message);
+    public void sendMessageStateOrderUpdated(String message) {
+        messangerServicePersistencePort.sendMessageStateOrderUpdated(message);
     }
-
-   }
+}

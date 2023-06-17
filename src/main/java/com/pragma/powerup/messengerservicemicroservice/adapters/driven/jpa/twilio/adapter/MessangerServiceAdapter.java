@@ -20,12 +20,13 @@ public class MessangerServiceAdapter implements IMessengerServicePersistencePort
     String phoneNumberFrom;
 
     @Override
-    public void sendMessageOrderReady(String message) {
+    public void sendMessageStateOrderUpdated(String message) {
         Twilio.init(accountSid, authToken);
-         Message.creator(
+        Message.creator(
                         new com.twilio.type.PhoneNumber(phoneNumberTo),
                         new com.twilio.type.PhoneNumber(phoneNumberFrom),
                         message)
                 .create();
     }
+
 }
