@@ -13,8 +13,8 @@ public class MessengerServiceHandlerImpl implements IMessangerServiceHandler {
 
 
     @Override
-    public void sendMessageOrderReady(String message) {
-        messengerServicePort.sendMessageOrderReady(message);
+    public void sendMessageStateOrderUpdated(String message) {
+        messengerServicePort.sendMessageStateOrderUpdated(message);
     }
 
 }
