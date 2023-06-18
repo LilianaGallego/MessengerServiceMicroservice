@@ -7,7 +7,7 @@
   </p >
    <p align="justify">
       The implementation of this microservice begins with the send message sending notification when the restaurant 
-order is ready.
+order is ready, send message with order not cancelled by state not is Earning.
 
    </p>
 
@@ -43,6 +43,7 @@ To get a local copy up and running follow these steps:
    [http://localhost:9080/swagger-ui/index.html#](http://localhost:9080/swagger-ui/index.html) in your web browser
    
 - Send message order ready
+- Send message with order not cancelled by state not is Earning
    
 
 <!-- ROADMAP -->
