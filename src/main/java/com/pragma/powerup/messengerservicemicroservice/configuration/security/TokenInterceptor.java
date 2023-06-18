@@ -50,24 +50,15 @@ public class TokenInterceptor implements HandlerInterceptor {
 
         String roleUser = roles.get(0);
 
-        if (CONSUMER.equals(roleUser) && isClient(request.getRequestURI())) {
+        if ((CONSUMER.equals(roleUser) || EMPLOYEE.equals(roleUser)) && isValid(request.getRequestURI())) {
             return true;
         }
 
-
-        if (EMPLOYEE.equals(roleUser) && isEmployee(request.getRequestURI())) {
-            return true;
-        }
 
         throw new UserNotRoleAuthorized();
     }
 
-    private boolean isClient(String requestURI) {
-        return requestURI.startsWith("/smallsquare/restaurants/all/");
-
-    }
-
-    private boolean isEmployee(String requestURI) {
+    private boolean isValid(String requestURI) {
         return requestURI.startsWith("/messengerservice/send/message");
 
     }
